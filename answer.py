@@ -39,7 +39,6 @@ if __name__ == '__main__':
 
 #2 - News API
 KEY = os.getenv("API_KEY_news")
-# KEY = '96dad5ad89854f498081c23710dde0ef'
 
 def getNews(theme):
     response = requests.get(f'https://newsapi.org/v2/everything?q={theme}&language=ru&pageSize=1&apiKey={KEY}')

@@ -1,9 +1,13 @@
 import requests
 import json
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 #1 OpenWeatherMap
-city_name = 'Kirov'
-KEY = "919aa7df6fe145b188098a1b53bf315c"
+city_name = 'Moscow'
+KEY = os.getenv("API_KEY_weather")
 
 def getCoordinates():
     try:
@@ -34,7 +38,8 @@ if __name__ == '__main__':
 
 
 #2 - News API
-KEY = '96dad5ad89854f498081c23710dde0ef'
+KEY = os.getenv("API_KEY_news")
+# KEY = '96dad5ad89854f498081c23710dde0ef'
 
 def getNews(theme):
     response = requests.get(f'https://newsapi.org/v2/everything?q={theme}&language=ru&pageSize=1&apiKey={KEY}')
